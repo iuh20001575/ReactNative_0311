@@ -3,6 +3,7 @@ import { FlatList, StyleSheet, View } from 'react-native';
 import Button from './src/components/button/Button';
 import Drink from './src/components/drink/Drink';
 import OrderTag from './src/components/orderTag/OrderTag';
+import useCart from './src/context/CartContext';
 
 const orderTags = [
     {
@@ -19,8 +20,8 @@ const orderTags = [
     },
 ];
 
-export default function Screen04({ route }) {
-    const cart = route.params?.cart ?? [];
+export default function Screen04() {
+    const { cart } = useCart();
 
     return (
         <View style={styles.container}>

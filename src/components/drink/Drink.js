@@ -1,8 +1,18 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import { Pressable } from 'react-native';
+import useCart from '../../context/CartContext';
 
 export default function Drink({ item }) {
+    const { setCart } = useCart();
+
+    const handleMinus = () => {
+        setCart((cart) => cart.filter((cart) => cart.id !== item.id));
+    };
+    const handleAdd = () => {
+        setCart((cart) => [...new Set([...cart, item])]);
+    };
+
     return (
         <View key={item.title} style={styles.container}>
             <Image style={styles.image} source={item.image} />
@@ -17,19 +27,13 @@ export default function Drink({ item }) {
                 </View>
             </View>
             <View style={styles.btns}>
-                <Pressable
-                    onPress={() => handleMinus(item)}
-                    style={styles.btnIcon}
-                >
+                <Pressable onPress={handleMinus} style={styles.btnIcon}>
                     <Image
                         style={styles.iconImage}
                         source={require('../../../assets/minus.png')}
                     />
                 </Pressable>
-                <Pressable
-                    onPress={() => handleAdd(item)}
-                    style={styles.btnIcon}
-                >
+                <Pressable onPress={handleAdd} style={styles.btnIcon}>
                     <Image
                         style={styles.iconImage}
                         source={require('../../../assets/plus.png')}

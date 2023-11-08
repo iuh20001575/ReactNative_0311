@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
-import Product from './src/components/product/Product';
 import config from './config';
+import Product from './src/components/product/Product';
 
-export default function Screen02({ navigation }) {
+export default function Screen02() {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {

@@ -1,39 +1,25 @@
-import React from 'react';
-import { FlatList, StyleSheet, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { FlatList, ScrollView, StyleSheet } from 'react-native';
+import config from './config';
 import Button from './src/components/button/Button';
 import Drink from './src/components/drink/Drink';
-
-const items = [
-    {
-        image: require('./assets/Image 5 (1).png'),
-        title: 'Title 1',
-        price: '20',
-    },
-    {
-        image: require('./assets/Image 5 (2).png'),
-        title: 'Title 2',
-        price: '20',
-    },
-    {
-        image: require('./assets/Image 5 (3).png'),
-        title: 'Title 3',
-        price: '20',
-    },
-    {
-        image: require('./assets/Image 5 (4).png'),
-        title: 'Title 4',
-        price: '20',
-    },
-    {
-        image: require('./assets/Image 5 (1).png'),
-        title: 'Title 5',
-        price: '20',
-    },
-];
+import useCart from './src/context/CartContext';
 
 export default function Screen03({ navigation }) {
+    const [items, setItems] = useState([]);
+    const { cart } = useCart();
+
+    useEffect(() => {
+        (async () => {
+            const res = await fetch(`${config.ENDPOINT}/drinks`);
+            const data = await res.json();
+
+            setItems(data);
+        })();
+    }, []);
+
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <FlatList
                 data={items}
                 renderItem={({ item }) => <Drink item={item} />}
@@ -42,20 +28,24 @@ export default function Screen03({ navigation }) {
             />
 
             <Button
+                style={styles.btn}
                 onPress={() => {
                     navigation.navigate('Screen04', { cart });
                 }}
             >
                 GO TO CART
             </Button>
-        </View>
+        </ScrollView>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
         paddingHorizontal: 20,
-        gap: 57,
+        paddingBottom: 32,
+    },
+    btn: {
+        marginTop: 57,
     },
     list: {
         gap: 16,
