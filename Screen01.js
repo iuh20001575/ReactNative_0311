@@ -9,9 +9,9 @@ import {
 } from 'react-native';
 
 const stores = [
-    require('./assets/Image.png'),
-    require('./assets/Image (1).png'),
-    require('./assets/Image (3).png'),
+    require('./assets/store_3.png'),
+    require('./assets/store_1.png'),
+    require('./assets/store_2.png'),
 ];
 
 export default function Screen01({ navigation }) {
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flex: 1,
     },
-    title: { fontSize: 24, fontWeight: 700, marginTop: 89 },
+    title: { fontSize: 24, fontWeight: '700', marginTop: 89 },
     image: { width: 200, height: 62, borderRadius: 6, marginTop: 42 },
     list: {
         flexGrow: 0,

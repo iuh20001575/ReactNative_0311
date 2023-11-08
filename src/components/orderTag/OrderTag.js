@@ -32,6 +32,11 @@ const styles = StyleSheet.create({
     info: {
         gap: 11,
     },
-    text: { color: '#fff', fontWeight: 700, fontSize: 16, lineHeight: 26 },
-    textLarge: { color: '#fff', fontWeight: 700, fontSize: 20, lineHeight: 30 },
+    text: { color: '#fff', fontWeight: '700', fontSize: 16, lineHeight: 26 },
+    textLarge: {
+        color: '#fff',
+        fontWeight: '700',
+        fontSize: 20,
+        lineHeight: 30,
+    },
 });

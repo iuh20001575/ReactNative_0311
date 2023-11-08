@@ -15,7 +15,7 @@ export default function Drink({ item }) {
 
     return (
         <View key={item.title} style={styles.container}>
-            <Image style={styles.image} source={item.image} />
+            <Image style={styles.image} source={{ uri: item.image }} />
             <View style={styles.info}>
                 <Text style={styles.title}>{item.title}</Text>
                 <View style={styles.priceGroup}>
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: 4,
     },
-    title: { fontSize: 16, fontWeight: 500, lineHeight: 26 },
+    title: { fontSize: 16, fontWeight: '500', lineHeight: 26 },
     playImage: {
         width: 12,
         aspectRatio: 1,

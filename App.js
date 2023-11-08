@@ -44,7 +44,7 @@ function App() {
                             borderWidth: 0,
                         },
                         headerTitleStyle: {
-                            fontWeight: 700,
+                            fontWeight: '700',
                             fontSize: 24,
                             lineHeight: 36,
                         },

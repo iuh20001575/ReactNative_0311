@@ -11,7 +11,7 @@ export default function Product({ item }) {
 
     return (
         <Pressable onPress={handleClick} style={styles.container}>
-            <Image source={item.image} style={styles.image} />
+            <Image source={{ uri: item.image }} style={styles.image} />
             <View style={styles.info}>
                 <View style={styles.status}>
                     <View style={styles.acceptWrapper}>
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
         lineHeight: 22,
     },
     textLarge: {
-        fontWeight: 700,
+        fontWeight: '700',
         fontSize: 16,
         lineHeight: 26,
     },
