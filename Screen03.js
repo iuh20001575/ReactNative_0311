@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FlatList, ScrollView, StyleSheet } from 'react-native';
+import { FlatList, SafeAreaView, ScrollView, StyleSheet } from 'react-native';
 import config from './config';
 import Button from './src/components/button/Button';
 import Drink from './src/components/drink/Drink';
@@ -19,23 +19,25 @@ export default function Screen03({ navigation }) {
     }, []);
 
     return (
-        <ScrollView style={styles.container}>
-            <FlatList
-                data={items}
-                renderItem={({ item }) => <Drink item={item} />}
-                keyExtractor={(item, index) => index}
-                contentContainerStyle={styles.list}
-            />
+        <SafeAreaView>
+            <ScrollView style={styles.container}>
+                <FlatList
+                    data={items}
+                    renderItem={({ item }) => <Drink item={item} />}
+                    keyExtractor={(item, index) => index}
+                    contentContainerStyle={styles.list}
+                />
 
-            <Button
-                style={styles.btn}
-                onPress={() => {
-                    navigation.navigate('Screen04', { cart });
-                }}
-            >
-                GO TO CART
-            </Button>
-        </ScrollView>
+                <Button
+                    style={styles.btn}
+                    onPress={() => {
+                        navigation.navigate('Screen04', { cart });
+                    }}
+                >
+                    GO TO CART
+                </Button>
+            </ScrollView>
+        </SafeAreaView>
     );
 }
 

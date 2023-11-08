@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import { SafeAreaView, ScrollView, StyleSheet } from 'react-native';
 import config from './config';
 import Product from './src/components/product/Product';
 
@@ -18,11 +18,13 @@ export default function Screen02() {
     }, []);
 
     return (
-        <ScrollView contentContainerStyle={styles.contentList}>
-            {products.map((item) => (
-                <Product item={item} key={item.id} />
-            ))}
-        </ScrollView>
+        <SafeAreaView style={{ flex: 1 }}>
+            <ScrollView contentContainerStyle={styles.contentList}>
+                {products.map((item) => (
+                    <Product item={item} key={item.id} />
+                ))}
+            </ScrollView>
+        </SafeAreaView>
     );
 }
 

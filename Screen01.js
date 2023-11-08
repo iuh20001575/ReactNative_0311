@@ -3,6 +3,7 @@ import {
     FlatList,
     Image,
     Pressable,
+    SafeAreaView,
     StyleSheet,
     Text,
     View,
@@ -20,22 +21,24 @@ export default function Screen01({ navigation }) {
     };
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.title}>Welcome to Cafe world</Text>
-            <FlatList
-                style={styles.list}
-                data={stores}
-                renderItem={({ item }) => (
-                    <Image style={styles.image} source={item} />
-                )}
-                keyExtractor={(item, index) => index}
-            />
-            <View style={styles.wrapperButton}>
-                <Pressable onPress={handleClick} style={styles.button}>
-                    <Text style={styles.textButton}>GET STARTED</Text>
-                </Pressable>
+        <SafeAreaView style={{ flex: 1 }}>
+            <View style={styles.container}>
+                <Text style={styles.title}>Welcome to Cafe world</Text>
+                <FlatList
+                    style={styles.list}
+                    data={stores}
+                    renderItem={({ item }) => (
+                        <Image style={styles.image} source={item} />
+                    )}
+                    keyExtractor={(item, index) => index}
+                />
+                <View style={styles.wrapperButton}>
+                    <Pressable onPress={handleClick} style={styles.button}>
+                        <Text style={styles.textButton}>GET STARTED</Text>
+                    </Pressable>
+                </View>
             </View>
-        </View>
+        </SafeAreaView>
     );
 }
 

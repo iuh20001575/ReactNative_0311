@@ -49,6 +49,7 @@ function App() {
                             lineHeight: 36,
                         },
                         headerRight: HeaderRight,
+                        headerBackTitleVisible: false,
                     }}
                     initialRouteName='Screen01'
                 >
